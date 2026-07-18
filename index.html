@@ -78,11 +78,217 @@ body{
   background:#fff;border:4px solid #2f2430;left:50%;top:50%;transform:translate(-50%,-50%)
 }
 .device-top:after{
-  content:"DEX-01";color:#fff0f7;font-family:monospace;font-weight:900;letter-spacing:.12em;font-size:.72rem
+  content:"DEX-02";color:#fff0f7;font-family:monospace;font-weight:900;letter-spacing:.12em;font-size:.72rem
+}
+
+
+/* ===== DEXENDALIA'S POKEDEX 2.0 ===== */
+:root{
+  --px-dark:#3a2030;
+  --px-deep:#76204e;
+  --px-pink:#df3f91;
+  --px-light:#ff9ccc;
+  --px-screen:#f7fff7;
+  --px-green:#55b978;
+  --px-green-dark:#286d47;
+}
+body{
+  font-family:"Courier New",ui-monospace,monospace!important;
+  overflow-x:hidden;
+}
+body.booting{overflow:hidden}
+.top-shell{
+  border-radius:0 0 18px 18px!important;
+  image-rendering:pixelated;
+}
+.brand h1,.brand p,.head h2,.head h3,.card h4,.round-btn,.fab,.modal h3{
+  font-family:"Courier New",ui-monospace,monospace!important;
+}
+.screen{
+  border-radius:8px!important;
+  border-width:6px!important;
+  background:
+    repeating-linear-gradient(0deg,rgba(50,90,65,.04) 0 2px,transparent 2px 5px),
+    linear-gradient(145deg,#fff8fc,#effff4)!important;
+}
+.panel,.trainer,.card,.stat,.toolbar input,.toolbar select,.field input,.field select,.field textarea{
+  border-radius:6px!important;
+}
+.trainer,.card,.stat,.panel{
+  box-shadow:5px 5px 0 rgba(111,35,77,.18)!important;
+}
+.pixel-vine span{
+  animation:vinePulse 1.6s steps(2,end) infinite;
+}
+.pixel-vine span:nth-child(even){animation-delay:.35s}
+.vine-left,.vine-right{animation:vineGrowVertical 1.4s steps(8,end) both}
+.vine-top,.vine-bottom{animation:vineGrowHorizontal 1.4s steps(8,end) both}
+@keyframes vineGrowVertical{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0)}}
+@keyframes vineGrowHorizontal{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0)}}
+@keyframes vinePulse{0%,100%{transform:translate(0,0) rotate(-12deg)}50%{transform:translate(1px,-2px) rotate(-12deg)}}
+
+.sound-toggle{
+  border:3px solid #5f2144;border-radius:6px;background:#ffd8e9;color:#642046;
+  padding:8px 9px;font-weight:900;box-shadow:0 4px 0 #70214c;
+}
+.sound-toggle:active{transform:translateY(3px);box-shadow:0 1px 0 #70214c}
+
+.boot-screen{
+  position:fixed;inset:0;z-index:9999;
+  display:grid;place-items:center;
+  background:
+    linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px),
+    #4b1835;
+  background-size:16px 16px;
+  transition:opacity .45s ease,visibility .45s ease;
+}
+.boot-screen.done{opacity:0;visibility:hidden}
+.boot-card{text-align:center;color:#fff3f9;padding:22px}
+.boot-ball{
+  width:126px;height:126px;border-radius:50%;margin:0 auto 22px;
+  position:relative;border:8px solid #231923;
+  background:linear-gradient(#f65d92 0 44%,#231923 45% 55%,#fff 56%);
+  box-shadow:10px 10px 0 rgba(0,0,0,.28);
+  animation:bootBounce 1s steps(4,end) infinite;
+}
+.boot-ball:after{
+  content:"";position:absolute;width:38px;height:38px;border-radius:50%;
+  background:#fff;border:8px solid #231923;left:50%;top:50%;transform:translate(-50%,-50%)
+}
+.boot-title{
+  font:900 1.35rem/1.25 "Courier New",monospace;
+  text-shadow:4px 4px 0 #8d245c;letter-spacing:.06em;
+}
+.boot-sub{margin-top:10px;font-size:.82rem;animation:blink 1s steps(2,end) infinite}
+@keyframes bootBounce{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-12px) rotate(8deg)}}
+@keyframes blink{50%{opacity:.25}}
+
+.dex-cover{
+  position:fixed;inset:0;z-index:9990;display:grid;place-items:center;
+  background:rgba(50,16,37,.78);backdrop-filter:blur(3px);
+  transition:opacity .5s ease,visibility .5s ease;
+}
+.dex-cover.hidden-cover{opacity:0;visibility:hidden}
+.book{
+  width:min(340px,86vw);height:470px;position:relative;perspective:1200px;
+}
+.book-back,.book-front{
+  position:absolute;inset:0;border:7px solid #682047;border-radius:13px;
+  background:
+    linear-gradient(90deg,transparent 0 8%,rgba(255,255,255,.12) 8% 10%,transparent 10%),
+    linear-gradient(145deg,#ff83ba,#d93487);
+  box-shadow:12px 14px 0 rgba(55,17,40,.35);
+}
+.book-back{background:linear-gradient(145deg,#fff8fc,#e8fff0)}
+.book-front{
+  transform-origin:left center;
+  display:grid;place-items:center;text-align:center;color:white;padding:24px;
+}
+.dex-cover.open .book-front{animation:openBook 1.15s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes openBook{to{transform:rotateY(-105deg)}}
+.cover-ball{
+  width:110px;height:110px;border-radius:50%;margin:auto;
+  border:7px solid #2f1e2b;background:linear-gradient(#ff6d9f 0 45%,#2f1e2b 46% 54%,white 55%);
+  position:relative;
+}
+.cover-ball:after{
+  content:"";position:absolute;width:31px;height:31px;border-radius:50%;background:#fff;border:7px solid #2f1e2b;
+  left:50%;top:50%;transform:translate(-50%,-50%)
+}
+.cover-title{font:900 1.2rem "Courier New",monospace;text-shadow:3px 3px 0 #74204c;margin-top:18px}
+.cover-hint{font:.75rem "Courier New",monospace;margin-top:12px}
+.book-back{
+  display:grid;place-items:center;padding:28px;color:#63314c;text-align:center;
+  font-weight:900;letter-spacing:.04em;
+}
+.book-back:after{content:"TRAINER ARCHIVE ONLINE";border:3px dashed #6aa47d;padding:16px;background:#effff4}
+@media(prefers-reduced-motion:reduce){
+  .pixel-vine,.pixel-vine span,.boot-ball,.boot-sub{animation:none!important}
+}
+
+
+/* Boot-screen failsafe: CSS dismisses it even when preview timers are throttled. */
+.boot-screen{
+  animation:bootFailsafe .45s ease 2.15s forwards;
+  cursor:pointer;
+}
+.boot-screen:after{
+  content:"TAP ANYWHERE TO CONTINUE";
+  position:absolute;
+  bottom:9vh;
+  color:#ffe9f4;
+  font:900 .78rem "Courier New",monospace;
+  letter-spacing:.08em;
+  animation:blink 1s steps(2,end) infinite;
+}
+@keyframes bootFailsafe{
+  to{opacity:0;visibility:hidden;pointer-events:none}
+}
+
+
+/* Pokédex-cover failsafe */
+.dex-cover{cursor:pointer}
+.dex-cover.open{
+  animation:coverDismiss .35s ease .75s forwards;
+}
+@keyframes coverDismiss{
+  to{opacity:0;visibility:hidden;pointer-events:none}
+}
+.dex-cover:after{
+  content:"OPENING POKÉDEX...";
+  position:absolute;
+  bottom:5vh;
+  color:#fff1f8;
+  font:900 .78rem "Courier New",monospace;
+  letter-spacing:.08em;
+  animation:blink 1s steps(2,end) infinite;
+}
+.dex-cover.open:after{display:none}
+
+
+/* Android local-preview fix: CSS-only cover opening */
+.dex-cover{
+  animation:coverAutoHide .4s ease 3.05s forwards !important;
+  pointer-events:none !important;
+}
+.book-front{
+  animation:openBook 1.05s cubic-bezier(.2,.7,.2,1) 1.85s forwards !important;
+}
+.dex-cover:after{
+  content:"OPENING POKÉDEX..." !important;
+  animation:blink 1s steps(2,end) infinite, coverTextHide .2s linear 2.85s forwards !important;
+}
+@keyframes coverAutoHide{
+  to{opacity:0;visibility:hidden;display:none}
+}
+@keyframes coverTextHide{
+  to{opacity:0}
 }
 
 </style>
-</head><body>
+</head><body class="booting">
+
+<div id="bootScreen" class="boot-screen" aria-label="Pokédex boot screen">
+  <div class="boot-card">
+    <div class="boot-ball"></div>
+    <div class="boot-title">DEXENDALIA'S POKÉDEX 2.0</div>
+    <div class="boot-sub">INITIALIZING... TAP TO SKIP</div>
+  </div>
+</div>
+<div id="dexCover" class="dex-cover" aria-label="Open Pokédex">
+  <div class="book">
+    <div class="book-back"></div>
+    <button id="openDex" class="book-front" type="button">
+      <div>
+        <div class="cover-ball"></div>
+        <div class="cover-title">DEXENDALIA'S<br>POKÉDEX</div>
+        <div class="cover-hint">OPENING ARCHIVE</div>
+      </div>
+    </button>
+  </div>
+</div>
+
 
 <div class="pixel-frame" aria-hidden="true"></div>
 <div class="pixel-vine vine-left" aria-hidden="true">
@@ -103,7 +309,7 @@ body{
 </div>
 
 <div class="app">
-<header class="top-shell"><div class="device-top"><div class="brand"><div class="lens"></div><div class="poke-emblem" aria-hidden="true"></div><div><h1>Dexendalia's Pokédex</h1><p>Enchanted Trainer Archive</p></div></div><div class="lights"><i class="light red"></i><i class="light yellow"></i><i class="light green"></i></div></div><div class="screen"><div class="screen-row"><div><small>ACTIVE TRAINER</small><br><strong id="screenTrainer">No trainer selected</strong></div><button class="round-btn" id="addTrainer">+ Trainer</button></div></div></header>
+<header class="top-shell"><div class="device-top"><div class="brand"><div class="lens"></div><div class="poke-emblem" aria-hidden="true"></div><div><h1>Dexendalia's Pokédex</h1><p>POKÉDEX 2.0 TRAINER ARCHIVE</p></div></div><div class="lights"><i class="light red"></i><i class="light yellow"></i><i class="light green"></i></div></div><div class="screen"><div class="screen-row"><div><small>ACTIVE TRAINER</small><br><strong id="screenTrainer">No trainer selected</strong></div><button class="round-btn" id="addTrainer">+ Trainer</button></div></div></header>
 <main class="main">
 <section class="panel"><div class="head"><div><h3>Trainer Profiles</h3><small>Choose whose collection is open</small></div></div><div class="trainers" id="trainers"></div></section>
 <section id="content" class="hidden">
@@ -129,4 +335,66 @@ function cycleBuddy(id){let p=active().pokemon.find(x=>x.id===id),o=['none','cur
 $('addTrainer').onclick=()=>openTrainer();$('editTrainer').onclick=()=>openTrainer(state.active);$('addPokemon').onclick=()=>openPokemon();$('search').oninput=renderPokemon;$('filter').onchange=renderPokemon;document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>$(b.dataset.close).close());
 $('exportBtn').onclick=()=>{let blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='dexendalias-pokedex-backup.json';a.click();URL.revokeObjectURL(a.href)};$('importBtn').onclick=()=>$('importFile').click();$('importFile').onchange=e=>{let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let x=JSON.parse(r.result);if(!Array.isArray(x.trainers))throw Error();state=x;save();render();alert('Backup imported.')}catch{alert('That backup file could not be read.')}};r.readAsText(f)};render();
 </script>
+
+<script>
+(() => {
+  const boot = document.getElementById("bootScreen");
+  const cover = document.getElementById("dexCover");
+  const openDex = document.getElementById("openDex");
+  const soundBtn = document.getElementById("soundToggle");
+  let soundOn = localStorage.getItem("dexendalia-sound") === "on";
+  let ctx = null;
+
+  function audio(){
+    if(!ctx) ctx = new (window.AudioContext || window.webkitAudioContext)();
+    return ctx;
+  }
+  function tone(freq=440, duration=.08, type="square", volume=.035, delay=0){
+    if(!soundOn) return;
+    const c = audio(), o = c.createOscillator(), g = c.createGain();
+    o.type = type; o.frequency.setValueAtTime(freq,c.currentTime+delay);
+    g.gain.setValueAtTime(volume,c.currentTime+delay);
+    g.gain.exponentialRampToValueAtTime(.0001,c.currentTime+delay+duration);
+    o.connect(g);g.connect(c.destination);
+    o.start(c.currentTime+delay);o.stop(c.currentTime+delay+duration);
+  }
+  function menuSound(){tone(659,.055,"square",.025);tone(880,.06,"square",.02,.055)}
+  function openSound(){tone(392,.08,"square",.03);tone(523,.09,"square",.03,.08);tone(784,.16,"square",.035,.17)}
+  function saveSound(){tone(784,.06,"square",.025);tone(988,.09,"square",.025,.07)}
+  function updateSound(){
+    soundBtn.textContent = soundOn ? "♪ ON" : "♪ OFF";
+    soundBtn.setAttribute("aria-pressed",String(soundOn));
+  }
+  soundBtn.addEventListener("click",()=>{
+    soundOn=!soundOn;
+    localStorage.setItem("dexendalia-sound",soundOn?"on":"off");
+    updateSound();
+    if(soundOn){audio().resume();openSound()}
+  });
+  updateSound();
+
+  function dismissBoot(){
+    boot.classList.add("done");
+    boot.style.pointerEvents = "none";
+    document.body.classList.remove("booting");
+  }
+  boot.addEventListener("click", dismissBoot);
+  boot.addEventListener("touchstart", dismissBoot, {passive:true});
+  setTimeout(dismissBoot, 1500);
+  window.addEventListener("load", () => setTimeout(dismissBoot, 900));
+  setTimeout(dismissBoot, 3500);
+
+  // The cover animation is CSS-only so it works in Android local file previews.
+  sessionStorage.setItem("dexendalia-opened","yes");
+
+  document.addEventListener("click",e=>{
+    const b=e.target.closest("button");
+    if(!b || b===soundBtn || b===openDex) return;
+    menuSound();
+  });
+
+  document.addEventListener("submit",()=>saveSound());
+})();
+</script>
+
 </body></html>
