@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#d83c89">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Dexendalia's Pokédex">
+<title>Dexendalia's Pokédex</title>
+<style>
+:root{--hot:#ef4f9b;--deep:#9d2463;--rose:#ff87bb;--pale:#fff2f8;--cream:#fffaf2;--mint:#b9efd1;--ink:#301b2a;--muted:#816477;--line:#f0cadd;--white:#fff;--shadow:0 12px 30px rgba(111,35,77,.16)}
+*{box-sizing:border-box}body{margin:0;font-family:ui-rounded,"Arial Rounded MT Bold",system-ui,sans-serif;color:var(--ink);background:linear-gradient(180deg,#ffc5df 0,#fff2f8 32%,#fffaf2 100%);min-height:100vh}button,input,select,textarea{font:inherit}button{cursor:pointer}.app{max-width:900px;margin:auto;padding-bottom:100px}.top-shell{position:sticky;top:0;z-index:9;background:linear-gradient(145deg,#e83f91,#b92d73);padding:14px 16px 20px;color:white;box-shadow:0 6px 22px rgba(119,25,76,.28);border-radius:0 0 30px 30px}.device-top{display:flex;justify-content:space-between;align-items:center}.brand{display:flex;gap:12px;align-items:center}.lens{width:49px;height:49px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0 8%,#8ce8ff 10% 35%,#318fbd 37% 62%,#154b72 64%);border:5px solid #ffe6f2;box-shadow:0 0 0 3px #79204f}.brand h1{font-size:1.35rem;margin:0}.brand p{font-size:.78rem;opacity:.87;margin:2px 0}.lights{display:flex;gap:6px}.light{width:12px;height:12px;border-radius:50%;border:2px solid rgba(70,16,48,.5)}.red{background:#ff6b7d}.yellow{background:#ffe96b}.green{background:#78e59d}.screen{margin-top:15px;background:#fff7fb;border:5px solid #77234f;border-radius:20px;padding:13px;color:var(--ink);box-shadow:inset 0 0 0 3px #f8bad7}.screen-row{display:flex;justify-content:space-between;gap:12px;align-items:center}.screen small{color:var(--muted)}.screen strong{font-size:1.12rem}.round-btn{border:0;border-radius:999px;padding:10px 13px;background:#4d1536;color:white;font-weight:800}.main{padding:16px}.panel{background:rgba(255,255,255,.94);border:2px solid #f6c6dc;border-radius:24px;padding:16px;margin-bottom:14px;box-shadow:var(--shadow)}.head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}.head h2,.head h3{margin:0}.head small{color:var(--muted)}.trainers{display:flex;gap:10px;overflow:auto;padding:3px 1px 8px}.trainer{min-width:140px;border:2px solid transparent;border-radius:20px;background:#fff;padding:13px;text-align:left;box-shadow:0 6px 16px rgba(100,31,70,.1)}.trainer.active{border-color:var(--hot);background:#fff3f9}.avatar{height:48px;width:48px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#ffabd0,#b9efd1);font-size:1.4rem;border:3px solid white;box-shadow:0 0 0 2px var(--deep)}.trainer b{display:block;margin-top:8px}.trainer span{font-size:.78rem;color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.stat{background:linear-gradient(160deg,#fff,#fff1f8);border:1px solid var(--line);border-radius:18px;text-align:center;padding:13px 5px}.stat b{font-size:1.4rem;color:var(--deep)}.stat span{display:block;font-size:.7rem;color:var(--muted)}.toolbar{display:grid;grid-template-columns:1fr auto;gap:9px}.toolbar input,.toolbar select,.field input,.field select,.field textarea{width:100%;border:2px solid #efc6da;border-radius:14px;padding:11px;background:white;color:var(--ink)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.card{background:white;border:2px solid #f1c8dc;border-radius:22px;padding:11px;box-shadow:0 8px 18px rgba(101,29,70,.1);position:relative}.poke-img{height:125px;border-radius:18px;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle,#fff 0 28%,#ffd5e8 29% 31%,#fff1f8 32%);border:1px solid #f5cadd;font-size:3.1rem}.poke-img img{width:100%;height:100%;object-fit:cover}.card h4{margin:10px 0 2px}.meta{color:var(--muted);font-size:.76rem}.badges{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}.badge{font-size:.65rem;border-radius:999px;padding:5px 7px;background:#f4eaf0}.buddy{background:#dff8ea}.best{background:#ffd8ea}.shiny{background:#fff2a8}.actions{display:flex;gap:7px;margin-top:10px}.actions button{flex:1;border:0;border-radius:12px;padding:9px 5px;background:#f6e7ef}.primary{background:linear-gradient(135deg,var(--hot),#c92d76)!important;color:white;font-weight:800}.fab{position:fixed;right:18px;bottom:20px;border:3px solid white;border-radius:999px;padding:15px 18px;background:linear-gradient(135deg,#ef4f9b,#a62267);color:white;font-weight:900;box-shadow:0 10px 25px rgba(153,28,90,.38);z-index:10}.hidden{display:none!important}.empty{text-align:center;color:var(--muted);padding:24px 8px}dialog{border:0;border-radius:25px;padding:0;width:calc(100% - 22px);max-width:520px;box-shadow:0 30px 80px rgba(50,12,35,.4)}dialog::backdrop{background:rgba(55,12,38,.55);backdrop-filter:blur(3px)}.modal{padding:19px;background:var(--pale)}.modal h3{margin:0 0 14px}.form{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{display:flex;flex-direction:column;gap:5px}.field.full{grid-column:1/-1}.field label{font-size:.75rem;color:var(--muted);font-weight:800}.modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:15px}.modal-actions button{border:0;border-radius:13px;padding:10px 13px}.danger{background:#ffe1e8;color:#a12043}.photo-preview{height:130px;border-radius:16px;background:#ffe8f3;display:grid;place-items:center;overflow:hidden;color:var(--muted)}.photo-preview img{width:100%;height:100%;object-fit:cover}.utility{display:flex;gap:8px;flex-wrap:wrap}.utility button{border:0;border-radius:13px;padding:10px 12px;background:#f5e5ee}.copyright{font-size:.68rem;color:#987485;text-align:center;padding:2px 20px 15px}@media(max-width:520px){.form{grid-template-columns:1fr}.field.full{grid-column:auto}.toolbar{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.poke-img{height:112px}}
+
+.pixel-frame{
+  position:fixed; inset:0; pointer-events:none; z-index:30;
+  border:8px solid transparent;
+  image-rendering:pixelated;
+}
+.pixel-vine{
+  position:fixed; z-index:31; pointer-events:none; image-rendering:pixelated;
+  color:#3c9b65;
+  text-shadow:
+    4px 0 #28744a,-4px 0 #28744a,0 4px #28744a,0 -4px #28744a;
+  font-family:monospace; font-weight:900; line-height:1;
+  opacity:.92;
+}
+.vine-left,.vine-right{
+  top:92px; bottom:18px; width:20px;
+  display:flex; flex-direction:column; justify-content:space-around;
+  font-size:18px;
+}
+.vine-left{left:3px}.vine-right{right:3px; transform:scaleX(-1)}
+.vine-top{
+  top:3px; left:72px; right:72px; height:20px;
+  display:flex; justify-content:space-around; font-size:18px;
+}
+.vine-bottom{
+  bottom:3px; left:20px; right:20px; height:20px;
+  display:flex; justify-content:space-around; font-size:18px;
+}
+.pixel-leaf{display:block; transform:rotate(-12deg)}
+.vine-top .pixel-leaf,.vine-bottom .pixel-leaf{display:inline-block}
+@media(max-width:520px){
+  .vine-left,.vine-right{font-size:14px;width:15px}
+  .vine-top,.vine-bottom{font-size:14px}
+  .main{padding-left:20px;padding-right:20px}
+}
+
+
+/* Single-file enchanted pixel-console makeover */
+body{
+  background:
+    linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px),
+    radial-gradient(circle at top,#ffbddc,#e95ca2 42%,#9f2c69 100%) !important;
+  background-size:16px 16px,16px 16px,auto !important;
+}
+.top-shell{border:5px solid #78204f !important;box-shadow:0 10px 0 #78204f,0 18px 35px rgba(74,24,51,.25)!important}
+.round-btn,.fab,.save-btn,.ghost-btn,.danger-btn,.small-btn{
+  border-radius:7px!important;
+  border:3px solid #5f2144!important;
+  box-shadow:0 5px 0 #77214f!important;
+  font-weight:900!important;
+  letter-spacing:.02em!important;
+  text-transform:uppercase;
+}
+.round-btn:active,.fab:active,.save-btn:active,.ghost-btn:active,.danger-btn:active,.small-btn:active{
+  transform:translateY(4px)!important;box-shadow:0 1px 0 #77214f!important;
+}
+.brand h1{text-shadow:3px 3px 0 #7b2151}
+.poke-emblem{
+  width:58px;height:58px;border-radius:50%;position:relative;flex:none;
+  background:linear-gradient(#ff648d 0 45%,#2f2430 46% 55%,#fff 56%);
+  border:4px solid #2f2430;box-shadow:4px 4px 0 rgba(73,25,51,.28);
+}
+.poke-emblem:after{
+  content:"";position:absolute;width:17px;height:17px;border-radius:50%;
+  background:#fff;border:4px solid #2f2430;left:50%;top:50%;transform:translate(-50%,-50%)
+}
+.device-top:after{
+  content:"DEX-01";color:#fff0f7;font-family:monospace;font-weight:900;letter-spacing:.12em;font-size:.72rem
+}
+
+</style>
+</head><body>
+
+<div class="pixel-frame" aria-hidden="true"></div>
+<div class="pixel-vine vine-left" aria-hidden="true">
+  <span class="pixel-leaf">◆</span><span class="pixel-leaf">❖</span><span class="pixel-leaf">◆</span>
+  <span class="pixel-leaf">❖</span><span class="pixel-leaf">◆</span><span class="pixel-leaf">❖</span>
+</div>
+<div class="pixel-vine vine-right" aria-hidden="true">
+  <span class="pixel-leaf">◆</span><span class="pixel-leaf">❖</span><span class="pixel-leaf">◆</span>
+  <span class="pixel-leaf">❖</span><span class="pixel-leaf">◆</span><span class="pixel-leaf">❖</span>
+</div>
+<div class="pixel-vine vine-top" aria-hidden="true">
+  <span class="pixel-leaf">◆</span><span class="pixel-leaf">❖</span><span class="pixel-leaf">◆</span>
+  <span class="pixel-leaf">❖</span><span class="pixel-leaf">◆</span>
+</div>
+<div class="pixel-vine vine-bottom" aria-hidden="true">
+  <span class="pixel-leaf">◆</span><span class="pixel-leaf">❖</span><span class="pixel-leaf">◆</span>
+  <span class="pixel-leaf">❖</span><span class="pixel-leaf">◆</span><span class="pixel-leaf">❖</span>
+</div>
+
+<div class="app">
+<header class="top-shell"><div class="device-top"><div class="brand"><div class="lens"></div><div class="poke-emblem" aria-hidden="true"></div><div><h1>Dexendalia's Pokédex</h1><p>Enchanted Trainer Archive</p></div></div><div class="lights"><i class="light red"></i><i class="light yellow"></i><i class="light green"></i></div></div><div class="screen"><div class="screen-row"><div><small>ACTIVE TRAINER</small><br><strong id="screenTrainer">No trainer selected</strong></div><button class="round-btn" id="addTrainer">+ Trainer</button></div></div></header>
+<main class="main">
+<section class="panel"><div class="head"><div><h3>Trainer Profiles</h3><small>Choose whose collection is open</small></div></div><div class="trainers" id="trainers"></div></section>
+<section id="content" class="hidden">
+<section class="panel"><div class="head"><div><h2 id="trainerName">Trainer</h2><small id="trainerSub">Pokémon GO archive</small></div><button class="round-btn" id="editTrainer">Edit</button></div><div class="stats"><div class="stat"><b id="owned">0</b><span>OWNED</span></div><div class="stat"><b id="buddies">0</b><span>BUDDIES</span></div><div class="stat"><b id="best">0</b><span>BEST BUDDIES</span></div></div></section>
+<section class="panel"><div class="head"><div><h3>Owned Pokémon</h3><small>Your actual collection, no filler arc</small></div></div><div class="toolbar"><input id="search" placeholder="Search Pokémon or nickname"><select id="filter"><option value="all">All owned</option><option value="buddy">Buddies</option><option value="best">Best Buddies</option><option value="shiny">Shinies</option><option value="favorite">Favorites</option></select></div></section>
+<div class="grid" id="grid"></div>
+<section class="panel"><div class="head"><div><h3>Collection Backup</h3><small>Protect the sacred archive</small></div></div><div class="utility"><button id="exportBtn">Export backup</button><button id="importBtn">Import backup</button><input id="importFile" type="file" accept="application/json" hidden></div></section>
+</section>
+</main><button class="fab hidden" id="addPokemon">＋ Add Pokémon</button><div class="copyright">Fan-made personal tracker. Pokémon names and trademarks belong to their respective owners.</div></div>
+<dialog id="trainerDialog"><form class="modal" id="trainerForm"><h3 id="trainerTitle">Add Trainer</h3><input type="hidden" id="trainerId"><div class="form"><div class="field full"><label>Trainer name</label><input id="tName" required placeholder="Denver"></div><div class="field"><label>Pokémon GO username</label><input id="tUser" placeholder="Optional"></div><div class="field"><label>Team</label><select id="tTeam"><option value="">No team</option><option>Mystic</option><option>Valor</option><option>Instinct</option></select></div><div class="field full"><label>Profile emoji</label><input id="tEmoji" maxlength="4" placeholder="🌸"></div></div><div class="modal-actions"><button type="button" id="delTrainer" class="danger hidden">Delete</button><button type="button" data-close="trainerDialog">Cancel</button><button class="primary">Save Trainer</button></div></form></dialog>
+<dialog id="pokemonDialog"><form class="modal" id="pokemonForm"><h3 id="pokemonTitle">Add Pokémon</h3><input type="hidden" id="pokemonId"><div class="form"><div class="field"><label>Species</label><input id="species" required placeholder="Totodile"></div><div class="field"><label>Nickname</label><input id="nickname" placeholder="Optional"></div><div class="field"><label>CP</label><input id="cp" type="number" min="0" inputmode="numeric"></div><div class="field"><label>Buddy status</label><select id="buddyStatus"><option value="none">Not a buddy</option><option value="current">Current Buddy</option><option value="progress">Buddy in progress</option><option value="best">Best Buddy</option></select></div><div class="field"><label>Shiny?</label><select id="shiny"><option value="false">No</option><option value="true">Yes</option></select></div><div class="field"><label>Favorite?</label><select id="favorite"><option value="false">No</option><option value="true">Yes</option></select></div><div class="field full"><label>Photo or screenshot</label><input id="photo" type="file" accept="image/*"><div class="photo-preview" id="preview">No image selected</div></div><div class="field full"><label>Notes</label><textarea id="notes" rows="3" placeholder="Why this one matters, catch memory, evolution plans..."></textarea></div></div><div class="modal-actions"><button type="button" id="delPokemon" class="danger hidden">Delete</button><button type="button" data-close="pokemonDialog">Cancel</button><button class="primary">Save Pokémon</button></div></form></dialog>
+<script>
+const KEY='dexendalias-pokedex-v1';let state=JSON.parse(localStorage.getItem(KEY)||'null')||{trainers:[],active:null};let pendingImage='';const $=x=>document.getElementById(x),uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2),save=()=>localStorage.setItem(KEY,JSON.stringify(state)),active=()=>state.trainers.find(t=>t.id===state.active);function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function render(){let wrap=$('trainers');wrap.innerHTML='';state.trainers.forEach(t=>{let b=document.createElement('button');b.className='trainer'+(t.id===state.active?' active':'');b.innerHTML=`<div class="avatar">${esc(t.emoji||'🌸')}</div><b>${esc(t.name)}</b><span>${esc(t.username||t.team||'Trainer profile')}</span>`;b.onclick=()=>{state.active=t.id;save();render()};wrap.appendChild(b)});if(!state.trainers.length)wrap.innerHTML='<div class="empty">Create your first trainer profile to begin.</div>';let t=active();$('content').classList.toggle('hidden',!t);$('addPokemon').classList.toggle('hidden',!t);$('screenTrainer').textContent=t?t.name:'No trainer selected';if(!t)return;$('trainerName').textContent=t.name;$('trainerSub').textContent=t.username?'Pokémon GO: '+t.username:(t.team||'Independent')+' trainer';$('owned').textContent=t.pokemon.length;$('buddies').textContent=t.pokemon.filter(p=>['current','progress','best'].includes(p.buddy)).length;$('best').textContent=t.pokemon.filter(p=>p.buddy==='best').length;renderPokemon()}
+function renderPokemon(){let t=active(),q=$('search').value.toLowerCase().trim(),f=$('filter').value,items=t.pokemon.filter(p=>{let m=(p.species+' '+(p.nickname||'')).toLowerCase().includes(q);let ok=f==='all'||f==='buddy'&&['current','progress'].includes(p.buddy)||f==='best'&&p.buddy==='best'||f==='shiny'&&p.shiny||f==='favorite'&&p.favorite;return m&&ok}).sort((a,b)=>(b.favorite-a.favorite)||a.species.localeCompare(b.species));let g=$('grid');g.innerHTML='';if(!items.length){g.innerHTML='<div class="panel empty">No Pokémon in this view yet.</div>';return}items.forEach(p=>{let d=document.createElement('article');d.className='card';let img=p.image?`<img src="${p.image}" alt="${esc(p.species)}">`:(p.shiny?'✨':'⚡');let badges=(p.favorite?'<span class="badge">★ Favorite</span>':'')+(p.shiny?'<span class="badge shiny">✨ Shiny</span>':'')+(p.buddy==='current'?'<span class="badge buddy">Current Buddy</span>':'')+(p.buddy==='progress'?'<span class="badge buddy">In Progress</span>':'')+(p.buddy==='best'?'<span class="badge best">Best Buddy</span>':'');d.innerHTML=`<div class="poke-img">${img}</div><h4>${esc(p.nickname||p.species)}</h4><div class="meta">${esc(p.species)}${p.cp?' • CP '+p.cp:''}</div><div class="badges">${badges}</div><div class="actions"><button onclick="cycleBuddy('${p.id}')">Buddy</button><button class="primary" onclick="openPokemon('${p.id}')">Edit</button></div>`;g.appendChild(d)})}
+function openTrainer(id=''){let t=id?state.trainers.find(x=>x.id===id):null;$('trainerTitle').textContent=t?'Edit Trainer':'Add Trainer';$('trainerId').value=t?.id||'';$('tName').value=t?.name||'';$('tUser').value=t?.username||'';$('tTeam').value=t?.team||'';$('tEmoji').value=t?.emoji||'';$('delTrainer').classList.toggle('hidden',!t);$('trainerDialog').showModal()}
+function openPokemon(id=''){let p=id?active().pokemon.find(x=>x.id===id):null;pendingImage=p?.image||'';$('pokemonTitle').textContent=p?'Edit Pokémon':'Add Pokémon';$('pokemonId').value=p?.id||'';$('species').value=p?.species||'';$('nickname').value=p?.nickname||'';$('cp').value=p?.cp||'';$('buddyStatus').value=p?.buddy||'none';$('shiny').value=String(!!p?.shiny);$('favorite').value=String(!!p?.favorite);$('notes').value=p?.notes||'';$('photo').value='';$('preview').innerHTML=p?.image?`<img src="${p.image}">`:'No image selected';$('delPokemon').classList.toggle('hidden',!p);$('pokemonDialog').showModal()}
+$('photo').onchange=e=>{let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{pendingImage=r.result;$('preview').innerHTML=`<img src="${pendingImage}">`};r.readAsDataURL(f)};
+$('trainerForm').onsubmit=e=>{e.preventDefault();let id=$('trainerId').value,data={name:$('tName').value.trim(),username:$('tUser').value.trim(),team:$('tTeam').value,emoji:$('tEmoji').value.trim()||'🌸'};if(id)Object.assign(state.trainers.find(t=>t.id===id),data);else{let t={id:uid(),...data,pokemon:[]};state.trainers.push(t);state.active=t.id}save();$('trainerDialog').close();render()};
+$('pokemonForm').onsubmit=e=>{e.preventDefault();let id=$('pokemonId').value,data={species:$('species').value.trim(),nickname:$('nickname').value.trim(),cp:Number($('cp').value)||0,buddy:$('buddyStatus').value,shiny:$('shiny').value==='true',favorite:$('favorite').value==='true',notes:$('notes').value.trim(),image:pendingImage};if(id)Object.assign(active().pokemon.find(p=>p.id===id),data);else active().pokemon.push({id:uid(),...data});save();$('pokemonDialog').close();render()};
+$('delPokemon').onclick=()=>{if(confirm('Delete this Pokémon entry?')){active().pokemon=active().pokemon.filter(p=>p.id!==$('pokemonId').value);save();$('pokemonDialog').close();render()}};$('delTrainer').onclick=()=>{if(confirm('Delete this trainer and their entire Pokédex?')){state.trainers=state.trainers.filter(t=>t.id!==$('trainerId').value);state.active=state.trainers[0]?.id||null;save();$('trainerDialog').close();render()}};
+function cycleBuddy(id){let p=active().pokemon.find(x=>x.id===id),o=['none','current','progress','best'];p.buddy=o[(o.indexOf(p.buddy)+1)%o.length];save();render()}
+$('addTrainer').onclick=()=>openTrainer();$('editTrainer').onclick=()=>openTrainer(state.active);$('addPokemon').onclick=()=>openPokemon();$('search').oninput=renderPokemon;$('filter').onchange=renderPokemon;document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>$(b.dataset.close).close());
+$('exportBtn').onclick=()=>{let blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='dexendalias-pokedex-backup.json';a.click();URL.revokeObjectURL(a.href)};$('importBtn').onclick=()=>$('importFile').click();$('importFile').onchange=e=>{let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let x=JSON.parse(r.result);if(!Array.isArray(x.trainers))throw Error();state=x;save();render();alert('Backup imported.')}catch{alert('That backup file could not be read.')}};r.readAsText(f)};render();
+</script>
+</body></html>
